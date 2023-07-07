@@ -3,20 +3,36 @@
   margin: 0;
 }
 body{
-  font-family: pfm, 'Poppins', sans-serif;
-  font-weight: 500 !important;
-  min-height: calc(100vh - 0px);
+  overflow: hidden;
+  max-height: 100vh;
+  max-width: 100vw;
+}
+.container{
   width: 100vw;
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow: auto;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   align-content: center;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+
 }
-h1{
+h1, h2{
   font-weight: 500;
   font-family: pfb;
+  text-align: center;
+}
+.desc{
+  font-weight: 500;
+  font-family: pfr;
+  text-align: center;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: block;
 }
 button{
   /* font-family: pfm;
@@ -39,4 +55,103 @@ button:disabled{
   align-content: center;
   justify-content: center;
   align-items: center;
+}
+/* Atom One Light by Daniel Gamage Original One Light Syntax theme from https://github.com/atom/one-light-syntax base:    #fafafa mono-1:  #383a42 mono-2:  #686b77 mono-3:  #a0a1a7 hue-1:   #0184bb hue-2:   #4078f2 hue-3:   #a626a4 hue-4:   #50a14f hue-5:   #e45649 hue-5-2: #c91243 hue-6:   #986801 hue-6-2: #c18401 */
+.hljs {
+  color: #383a42;
+  background: transparent;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #a0a1a7;
+  font-style: italic;
+}
+
+.hljs-doctag,
+.hljs-keyword,
+.hljs-formula {
+  color: #a626a4;
+}
+
+.hljs-section,
+.hljs-name,
+.hljs-selector-tag,
+.hljs-deletion,
+.hljs-subst {
+  color: #e45649;
+}
+
+.hljs-literal {
+  color: #0184bb;
+}
+
+.hljs-string,
+.hljs-regexp,
+.hljs-addition,
+.hljs-attribute,
+.hljs-meta .hljs-string {
+  color: #50a14f;
+}
+
+.hljs-attr,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-type,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-number {
+  color: #986801;
+}
+
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link,
+.hljs-meta,
+.hljs-selector-id,
+.hljs-title {
+  color: #4078f2;
+}
+
+.hljs-built_in,
+.hljs-title.class_,
+.hljs-class .hljs-title {
+  color: #c18401;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-link {
+  text-decoration: underline;
+}
+
+
+container {
+  display: flex;
+  max-width: 900px;
+  gap: 50px;
+  margin-bottom: 150px;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+container .obj {}
+
+container code {
+  white-space: pre;
+}
+hr{
+  height: 1px;
+  width: 100%;
+  background-color: #000;
 }

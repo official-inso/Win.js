@@ -1,6 +1,9 @@
 .windows-window-content-div{
   font-family: pfl;
 }
+.windows-window-title *[title]{
+  font-family: pfb;
+}
 .header_win{
   width: 100%;
   height: 180px;
@@ -26,3 +29,5 @@
   background-color: rgba(0, 0, 0, 0.55);
   color: #fff;
 }
+
+

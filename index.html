@@ -11,24 +11,259 @@
 
   <script src="lib/windows.js?ver=16"></script>
   <script src="script.js?ver=23"></script>
+
+  <script src="/media/cdnjs.cloudflare.com_ajax_libs_highlight.js_11.1.0_highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
  
 </head>
-<body style="overflow: hidden;">
-  <div class="center">
-    <h1 style="text-align: center;margin-bottom: 25px;">Работа со всплывающими окнами</h1>
+<body>
+  <div class="container">
+    <h1 style="text-align: center;margin-top: 150px; margin-bottom: 25px;">Работа со всплывающими окнами</h1>
     <br>
-    <button style="width: 250px; padding: 10px; margin-bottom: 5px;" id="btn1">Открыть окно</button><br>
     <button style="width: 250px; padding: 10px; margin-bottom: 5px;" id="btn2">Открыть окно 2</button><br>
-    <button style="width: 250px; padding: 10px; margin-bottom: 5px;" id="btn3">Открыть окно 2<br>с повторной загрузкой содержимого</button><br>
     <button style="width: 250px; padding: 10px; margin-bottom: 5px;" id="btn5">Открыть окно без заголовка и кнопок</button><br>
     <button style="width: 250px; padding: 10px; margin-bottom: 5px;" id="btn4">Открыть несуществующее<br>окно</button><br>
     
     <br><br>
-    <ol style="font-family: pfl">
-      <li>Написать документацию</li>
-      <li>Сделать пример работы</li>
-      <!-- <li>Исправить баг при прокрутке</li> -->
-    </ol>
+
+    <container>
+
+      <div class="obj">
+        <h2>Пример инициализации библиотеки</h2>
+        <pre><code>
+          Win.init({
+            // Включает режим отладки
+            debug: false, // Параметр не обязательный, значение по умолчанию false
+
+            // Задержка на автозагрузку окн
+            loadDelay: 0, // Параметр не обязательный, значение по умолчанию 0
+
+            // Автоматический вывод окна в DOM структуру после автозагрузки
+            loadOutput: false, // Параметр не обязательный, значение по умолчанию false
+
+            // Включение кнопки назад
+            back: true, // Параметр не обязательный, значение по умолчанию true
+
+            // Включение кнопки вперед (Работает только если включена кнопка назад)
+            forward: true, // Параметр не обязательный, значение по умолчанию true
+
+            // Открытие окна на весь экран при прокрутке на мобильной версии
+            fullSize: true, // Параметр не обязательный, значение по умолчанию false
+
+            // Путь где библиотека будет искать окна
+            path: './windows', // Параметр не обязательный, значение по умолчанию './windows'
+
+            // Селектор где будут размещаться окна
+            selectorWin: 'body', // Параметр не обязательный, значение по умолчанию 'body'
+
+            // Цвет актцента
+            color: 'fbafba', // Параметр не обязательный, значение по умолчанию '7de31e'
+
+            // Дополнительные стили для загрузки
+            style: './test.css?ver=15', // Параметр не обязательный, значение по умолчанию ''
+
+            // Объект автозагрузки окон
+            load: {
+
+              // Идентификатор окна
+              'test': {
+
+                // Заголовок окна
+                title: 'Окно 1', // Параметр не обязательный, значение будет указано из идентификатора
+              },
+
+              // Идентификатор окна
+              'test2': {
+
+                // Заголовок окна
+                title: 'Окно 2', // Параметр не обязательный, значение будет указано из идентификатора
+
+                // Путь где хранится окно, если не соответствует шаблону: Win.cfg.path + ID_окна + .html
+                path: './windows/test.php' // Параметр не обязательный, значение будет указано из шаблона
+              }
+            },
+          });</code></pre>
+      </div>
+
+      <hr>
+
+      <div class="obj">
+        <h2>Пример открытия окна</h2>
+        <span class="desc">
+          Пример открытия окна без дополнительных параметров. Метод вернет промис<br>
+          <button style="width: 250px; padding: 10px; margin-bottom: 5px;" id="btn1">Открыть окно</button><br>
+        </span>
+        <pre><code>
+          Win.open('test').then((e) => {/* Your code... */});
+        </code></pre>
+      </div>
+
+      <hr>
+
+      <div class="obj">
+        <h2>
+          Пример открытия окна с дополнительными параметрами
+        </h2>
+        <span class="desc">
+          Пример открытия окна с дополнительными параметрами. Метод вернет промис<br>
+          <button style="width: 250px; padding: 10px; margin-bottom: 5px;" id="btn3">Открыть окно 2<br>с повторной загрузкой
+            содержимого</button><br>
+        </span>
+        <pre><code>
+          Win.open('test2', {
+
+            // Будет ли данное окно загруженно повторни при каждом новом открытии
+            update: true, // Параметр не обязательный, значение по умолчанию false
+
+            // Путь к окну на сервере
+            path: './windows/test.php', // Параметр не обязательный, значение будет указано из шаблона
+            
+            // Заголовок окна
+            title: 'Окно 2', // Параметр не обязательный, значение по умолчанию ID окна
+
+            // Кнопка назад и вперед
+            back: false, // Параметр не обязательный, значение по умолчанию Win.cfg.back
+
+          }).then((e) => {
+            /* Your code... */
+          });
+        </code></pre>
+      </div>
+
+      <hr>
+
+      <div class="obj">
+        <h2>Пример закрытия окна по ID</h2>
+        <pre><code>Win.close('window_name');</code></pre>
+      </div>
+
+      <hr>
+
+      <div class="obj">
+        <h2>Пример закрытия всех окн</h2>
+        <pre><code>Win.close();</code></pre>
+      </div>
+
+      <hr>
+
+      <div class="obj">
+        <h2>Пример закрытия активного окна через параметр объекта</h2>
+        <pre><code>
+          Win.close({
+            type: 'close'
+          });
+        </code></pre>
+      </div>
+
+      <hr>
+
+      <div class="obj">
+        <h2>Пример шага назад в окне</h2>
+        <pre><code>
+          Win.close({
+            type: 'back'
+          });
+        </code></pre>
+      </div>
+
+      <hr>
+
+      <div class="obj">
+        <h2>Пример шага вперед в окне</h2>
+        <pre><code>
+          Win.close({
+            type: 'forward'
+          });
+        </code></pre>
+      </div>
+      
+      <hr>
+
+      <div class="obj">
+        <h2>Пример закрытия всех окн через параметр объекта</h2>
+        <pre><code>
+                Win.close({
+                  type: 'closeAll'
+                });
+              </code></pre>
+      </div>
+      
+      <hr>
+
+      <div class="obj">
+        <h2>Возвращает структуру DOM открытого окна</h2>
+        <pre><code>Win.live();</code></pre>
+      </div>
+      
+      <hr>
+
+      <div class="obj">
+        <h2>Возвращает DOM-структуру открытого окна и с какими настройками оно было инициализировано</h2>
+        <pre><code>Win.live('object', true);</code></pre>
+      </div>
+      
+      <hr>
+
+      <div class="obj">
+        <h2>Возвращает идентификатор открытого окна</h2>
+        <pre><code>Win.live('name');</code></pre>
+      </div>
+      
+      <hr>
+
+      <div class="obj">
+        <h2>Возвращает ID открытого окна и с какими настройками оно было инициализировано</h2>
+        <pre><code>Win.live('name', true);</code></pre>
+      </div>
+      
+      <hr>
+
+      <div class="obj">
+        <h2>Метод проверки того, открыто или закрыто конкретное окно</h2>
+        <pre><code>Win.status('ID_win');</code></pre>
+      </div>
+      
+      <hr>
+
+      <div class="obj">
+        <h2>Пример вызова событий</h2>
+        <pre><code>
+            document.addEventListener('winOpen', (e) => {
+              console.log("Событие открытия окна: ", e.detail);
+            });
+            
+            document.addEventListener('winFullSize', (e) => {
+              console.log("Событие открытия окна на весь экран: ", e.detail);
+            });
+            
+            document.addEventListener('winMinSize', (e) => {
+              console.log("Событие открытия окна не на весь экран: ", e.detail);
+            });
+            
+            document.addEventListener('winClose', (e) => {
+              console.log("Событие закрытие окна: ", e.detail);
+            });
+            
+            document.addEventListener('winCloseAll', (e) => {
+              console.log("Событие закрытие всех окн: ", e.detail);
+            });
+            
+            document.addEventListener('winBack', (e) => {
+              console.log("Событие назад: ", e.detail);
+            });
+            
+            document.addEventListener('winForward', (e) => {
+              console.log("Событие вперед: ", e.detail);
+            });
+            
+            document.addEventListener('winHistoryNew', (e) => {
+              console.log("Добавление нового элемента в истории: ", e.detail);
+            });
+        </code></pre>
+      </div>
+
+    </container>
+
   </div>
 </body>
 </html>
