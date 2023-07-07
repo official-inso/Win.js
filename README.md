@@ -22,8 +22,7 @@
 
 <br><p>Пример инициализации библиотеки:</p>
 
-<pre><code>
-Win.init({
+<pre><code>Win.init({
   debug: false,
   loadDelay: 0,
   loadOutput: false,
