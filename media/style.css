@@ -1,0 +1,42 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+body{
+  font-family: pfm, 'Poppins', sans-serif;
+  font-weight: 500 !important;
+  min-height: calc(100vh - 0px);
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+h1{
+  font-weight: 500;
+  font-family: pfb;
+}
+button{
+  /* font-family: pfm;
+  background-color: #ffaa00;
+  padding: 7px 15px 9px 15px;
+  color: #303036;
+  outline: none;
+  border: none;
+  border-radius: 10px; */
+  cursor: pointer;
+}
+button:disabled{
+  /* opacity: 0.2; */
+  cursor: default;
+}
+.center{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,24 @@
+@font-face {
+  src: url("feather.woff?ver=0.7.5.000+%CE%B1");
+  font-family: 'ico';
+}
+
+@font-face {
+  src: local("Product Sans Light"), local("ProductSans-Light"), local("Product Sans.ttf"), url("Product Sans Light.ttf?ver=0.7.5.000+%CE%B1");
+  font-family: 'pfl';
+}
+
+@font-face {
+  src: local("Product Sans Medium.ttf"), url("Product Sans Medium.ttf?ver=0.7.5.000+%CE%B1");
+  font-family: 'pfm';
+}
+
+@font-face {
+  src: local("Product Sans.ttf"), url("Product Sans.ttf?ver=0.7.5.000+%CE%B1");
+  font-family: 'pfr';
+}
+
+@font-face {
+  src: local("Product Sans Bold.ttf"), url("Product Sans Bold.ttf?ver=0.7.5.000+%CE%B1");
+  font-family: 'pfb';
+}
