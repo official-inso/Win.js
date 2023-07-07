@@ -73,7 +73,7 @@
 <br><p>Пример выполнения кода:</p>
 <pre><code>Win.open('test2', {
   title: 'Окно 2',
-  content: '<h2>Hello world!</h2>',
+  content: 'Ваш HTML код...',
 }).then((e) => {
   // Ваш код...
 });
