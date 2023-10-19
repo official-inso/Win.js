@@ -39,23 +39,23 @@ document.addEventListener("DOMContentLoaded", function (e) {
     });
   });
 
-  document.getElementById('btn9').addEventListener('click', function (e) {
-    const text = this.innerHTML;
-    this.innerHTML = 'Загрузка окна...'
-    Win.open('testLocal', {
-      title: "Локальная загрузка",
-      content: Random.string(150)
-    }).then((e) => {
-      if(e == undefined) {
-        this.innerHTML = 'Ошибка загрузки<br>окна!'
-        setTimeout(() => {
-          this.innerHTML = text
-        }, 1000)
-      } else {
-        this.innerHTML = text;
-      }
-    });
-  });
+  // document.getElementById('btn9').addEventListener('click', function (e) {
+  //   const text = this.innerHTML;
+  //   this.innerHTML = 'Загрузка окна...'
+  //   Win.open('testLocal', {
+  //     title: "Локальная загрузка",
+  //     content: Random.string(150)
+  //   }).then((e) => {
+  //     if(e == undefined) {
+  //       this.innerHTML = 'Ошибка загрузки<br>окна!'
+  //       setTimeout(() => {
+  //         this.innerHTML = text
+  //       }, 1000)
+  //     } else {
+  //       this.innerHTML = text;
+  //     }
+  //   });
+  // });
 
   document.getElementById('btn2').addEventListener('click', function (e) {
     const text = this.innerHTML;
